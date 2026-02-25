@@ -1,51 +1,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sanidhya Portfolio</title>
+    <title>Sanidhya | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #4facfe, #00f2fe);
-            text-align: center;
-            color: white;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
-        .container {
-            margin-top: 100px;
+        body {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 40px 20px;
+            animation: fadeIn 2s ease-in-out;
         }
 
         h1 {
             font-size: 50px;
         }
 
-        p {
-            font-size: 20px;
+        .typing {
+            font-size: 22px;
+            margin-top: 10px;
+            height: 30px;
         }
 
-        .btn {
-            margin-top: 20px;
+        section {
+            padding: 60px 20px;
+            animation: slideUp 1.5s ease-in-out;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        button {
             padding: 10px 20px;
-            background: white;
-            color: black;
             border: none;
+            border-radius: 20px;
+            background: white;
+            color: #333;
             cursor: pointer;
-            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
         }
 
-        .btn:hover {
+        button:hover {
             background: black;
             color: white;
         }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes slideUp {
+            from {transform: translateY(50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Sanidhya Yadav</h1>
-        <p>Full Stack Developer</p>
-        <p>HTML | CSS | JavaScript | Spring Boot | MySQL</p>
-        <button class="btn">Contact Me</button>
+
+<header>
+    <h1>Sanidhya Yadav</h1>
+    <div class="typing" id="typing"></div>
+</header>
+
+<section>
+    <div class="card">
+        <h2>About Me</h2>
+        <p>Third Year B.Tech Student passionate about Full Stack Development and building real-world projects.</p>
     </div>
+
+    <div class="card">
+        <h2>Skills</h2>
+        <p>HTML | CSS | JavaScript | Java | Spring Boot | MySQL</p>
+    </div>
+
+    <div class="card">
+        <h2>Projects</h2>
+        <p>Student Management System (Full Stack)</p>
+    </div>
+
+    <button onclick="alert('Email: your-email@example.com')">
+        Contact Me
+    </button>
+</section>
+
+<script>
+    const text = "Full Stack Developer | Java Enthusiast";
+    let i = 0;
+
+    function typingEffect() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typingEffect, 100);
+        }
+    }
+
+    typingEffect();
+</script>
+
 </body>
 </html>
